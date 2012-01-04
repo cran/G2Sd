@@ -39,7 +39,7 @@ This example provide a data frame of sedimentary data obtained with AFNOR sieves
 \cite{Godet, L., Fournier, J., Toupoint, N., Olivier, F. 2009. Mapping and monitoring intertidal benthic habitats: a review of techniques and proposal of a new visual methodology for the European coasts. \emph{Progress in Physical Geography} \strong{33}, 378-402}
 }
 \references{
-\cite{Fournier, J., Godet, L., Bonnot-Courtois, C., Baltzer, A., Caline, B. 2009. Distribution des formations superficielles de l’archipel de Chausey (Manche). \emph{Géologie de la France} \strong{1}, 5-17}
+\cite{Fournier, J., Godet, L., Bonnot-Courtois, C., Baltzer, A., Caline, B. 2009. Distribution des formations superficielles de l archipel de Chausey (Manche). \emph{Geologie de la France} \strong{1}, 5-17}
 }
 \examples{
 data(granulo)

@@ -72,22 +72,22 @@ A matrix containing
 \item{Gravel}{percentage of sediment of the grain-size distribution retained in the Gravel class (between 2 mm and 63 mm)}                                           
 \item{Sand}{percentage of sediment of the grain-size distribution retained in the Sand class (between 63 micrometer and 2 mm)}                                          
 \item{Mud}{percentage of sediment of the grain-size distribution retained in the Mud class (down to 63 micrometer)}                                       
-\item{Boulder}{percentage of sediment of the grain-size distribution retained in the Mud class (upper to 63 mm)}                                                                                                                    
-\item{vcgravel}{percentage of sediment of the grain-size distribution retained in the Mud class (between 31.5 mm and 63 mm)}                                                             
-\item{cgravel}{percentage of sediment of the grain-size distribution retained in the Mud class (between 16 mm and 31.5 mm)}                                                             
-\item{mgravel}{percentage of sediment of the grain-size distribution retained in the Mud class (between 8 mm and 16 mm)}                                                             
-\item{fgravel}{percentage of sediment of the grain-size distribution retained in the Mud class (between 4 mm and 8 mm)}                                                             
-\item{vfgravel}{percentage of sediment of the grain-size distribution retained in the Mud class (between 2 mm and 4 mm)}                                                             
-\item{vcsand}{percentage of sediment of the grain-size distribution retained in the Mud class (between 1 mm and 2 mm)}                                                             
-\item{csand}{percentage of sediment of the grain-size distribution retained in the Mud class (between 500 micrometer and 1 mm)}                                              
-\item{msand}{percentage of sediment of the grain-size distribution retained in the Mud class (between 250 micrometer and 500 micrometer)}                                             
-\item{fsand}{percentage of sediment of the grain-size distribution retained in the Mud class (between 125 micrometer and 250 micrometer)}                                            
-\item{vfsand}{percentage of sediment of the grain-size distribution retained in the Mud class (between 63 micrometer and 125 micrometer)}                                                             
-\item{vcsilt}{percentage of sediment of the grain-size distribution retained in the Mud class (between 40 micrometer and 63 micrometer)}                                              
-\item{silt}{percentage of sediment of the grain-size distribution retained in the Mud class (lower than 40 micrometer)}      
+\item{Boulder}{percentage of sediment of the grain-size distribution retained in the Boulder class (upper to 63 mm)}                                                                                                                    
+\item{vcgravel}{percentage of sediment of the grain-size distribution retained in the Very Coarse Gravel class (between 31.5 mm and 63 mm)}                                                             
+\item{cgravel}{percentage of sediment of the grain-size distribution retained in the Coarse Gravel class (between 16 mm and 31.5 mm)}                                                             
+\item{mgravel}{percentage of sediment of the grain-size distribution retained in the Medium Gravel class (between 8 mm and 16 mm)}                                                             
+\item{fgravel}{percentage of sediment of the grain-size distribution retained in the Fine Gravel class (between 4 mm and 8 mm)}                                                             
+\item{vfgravel}{percentage of sediment of the grain-size distribution retained in the Very Fine Gravel class (between 2 mm and 4 mm)}                                                             
+\item{vcsand}{percentage of sediment of the grain-size distribution retained in the Very Coarse Sand class (between 1 mm and 2 mm)}                                                             
+\item{csand}{percentage of sediment of the grain-size distribution retained in the Coarse Sand class (between 500 micrometer and 1 mm)}                                              
+\item{msand}{percentage of sediment of the grain-size distribution retained in the Medium Sand class (between 250 micrometer and 500 micrometer)}                                             
+\item{fsand}{percentage of sediment of the grain-size distribution retained in the Fine Sand class (between 125 micrometer and 250 micrometer)}                                            
+\item{vfsand}{percentage of sediment of the grain-size distribution retained in the Very Fine Sand class (between 63 micrometer and 125 micrometer)}                                                             
+\item{vcsilt}{percentage of sediment of the grain-size distribution retained in the Very Coarse Silt class (between 40 micrometer and 63 micrometer)}                                              
+\item{silt}{percentage of sediment of the grain-size distribution retained in the Silt class (lower than 40 micrometer)}      
 }
 \references{
-\cite{Blott, S., Pye, K. 2001. Gradistat: grain size distribution and statistics package for the analysis of unconsolidated sediment. \emph{Earth, Surface Processes and Landforms} \strong{26}, 1237–1248}
+\cite{Blott, S., Pye, K. 2001. Gradistat: grain size distribution and statistics package for the analysis of unconsolidated sediment. \emph{Earth, Surface Processes and Landforms} \strong{26}, 1237-1248}
 
 \cite{Folk, R.L. 1954. The distinction between grain size and mineral composition in sedimentary-rock nomenclature. \emph{Journal of Geology} \strong{62}, 344-359}
 

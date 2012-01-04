@@ -27,7 +27,7 @@ Regis K. Gallon (MNHN) \email{regis.gallon@mnhn.fr},
 Jerome Fournier (CNRS) \email{fournier@mnhn.fr}
 }
 \references{
-\cite{Blott, S., Pye, K. 2001. Gradistat: grain size distribution and statistics package for the analysis of unconsolidated sediment. \emph{Earth, Surface Processes and Landforms} \strong{26}, 1237–1248}
+\cite{Blott, S., Pye, K. 2001. Gradistat: grain size distribution and statistics package for the analysis of unconsolidated sediment. \emph{Earth, Surface Processes and Landforms} \strong{26}, 1237-1248}
 
 \cite{Folk, R.L. 1954. The distinction between grain size and mineral composition in sedimentary-rock nomenclature. \emph{Journal of Geology} \strong{62}, 344-359}
 

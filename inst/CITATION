@@ -1,25 +1,16 @@
-citHeader("To cite in publications use:")
+citHeader("To cite in publications use: ")
 
-## R >= 2.8.0 passes package metadata to citation().
-if(!exists("meta") || is.null(meta)) meta <- packageDescription("G2Sd")
-year <- sub("-.*", "", meta$Date)
-note <- sprintf("R package version %s.", meta$Version)
-
-citEntry(entry = "Manual",
-	 title = {
-             paste("G2Sd: Grain-size Statistics and Description of Sediment")
-         },
-	 author = personList(
-           person("Regis K." , "Gallon",
-                  email = "regis.gallon@mnhn.fr"),
-           person("Jerome", "Fournier",
-                  email = "fournier@mnhn.fr")),
-         year = year,
-	 	 url = "http://CRAN.R-project.org/package=G2Sd",
-	 textVersion = {
-             paste("Regis K. Gallon and Jerome Fournier",
-	           sprintf("(%s).", year),
-                   "G2Sd: Grain-size Statistics and Description of Sediment",
-                   ,
-		   note)
-         })
+citEntry(entry="Manual",
+	title = "G2Sd : Grain-size Statistics and Description of Sediment",
+        author = personList(as.person("Regis K. Gallon"),as.person("Jerome Fournier")),
+	URL = "http://cran.r-project.org/web/packages/G2Sd/index.html",
+  	year = "2012",
+	       
+        textVersion = 
+        paste("Regis K. Gallon and Jerome Fournier ",
+				"2012 ", 
+               "G2Sd : Grain-size Statistics and Description of Sediment ",
+               "http://cran.r-project.org/web/packages/G2Sd/index.html ",
+               "R package version 1.2 ",
+               sep=",")
+         )
