@@ -1,0 +1,8 @@
+G2Sd                    gives full descriptive statistics and a physical 
+						description of sediment obtained with AFNOR 
+						or phi sieves according to the grain size distribution.
+gran.stat               Calculates all descriptive statistics
+granulo                 Data frame for G2Sd package
+plot.gran        		provides a histogram of the grain-size distribution 
+						with a cumulative percentage curve
+

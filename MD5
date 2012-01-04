@@ -1,0 +1,13 @@
+37940455d658b2e43d23ea93f370b326 *DESCRIPTION
+30f80d96f79a967862386272e67a242c *NAMESPACE
+0b605d3a19ab4662064012ddcf6eafd0 *R/G2Sd-internal.R
+4ee29964aea9b09fcb45a3a94d8fa56f *R/granplot.R
+3cdad283cb68de452a975549fc640bcc *R/granstat.R
+30ea2410d58651740274c4c54f7d6b27 *data/granulo.rda
+ab477621de6838d4eabb2f19586e676a *inst/CITATION
+65f00457dc4461cdbf6f73eb56905891 *inst/INDEX
+ff749ff8d6d637a3fb09e08e3c7311c1 *man/G2Sd-internal.Rd
+c3d4281ac9c3ccc3ffa74a98b5c5cad7 *man/G2Sd-package.Rd
+39572e4d44a5883a108935b0e47cea72 *man/granstat.Rd
+d4e0c4961b5ef4657a40a666f66126e6 *man/granulo.Rd
+d302b16d7df0f77eae71f584f16f3e69 *man/plotgran.Rd
