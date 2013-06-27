@@ -2,3 +2,7 @@
 	*change the adress of the maintainer  (new : reg.gallon@gmail.com)
 	*add new function grandistrib
 	*corrections of bugs ( units)
+	
+2.0-1 (2013-11-07)
+	*correction of .grancompat function
+	
