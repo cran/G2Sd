@@ -1,18 +1,14 @@
 granstat <-
 function(x,statistic="all",aggr=TRUE,modes=FALSE){
 
-    if (!is.data.frame(x)) 
-        stop("data.frame expected")
-    if (any(x < 0))
-stop("negative entries in table")
-
-
+x <- .grancompat(x)
+            
 STAT=c("arithmetic","geometric","folk.ward","all")
 statistic <- pmatch(statistic, STAT)
 
 if (sum(as.numeric(row.names(x)))>45) 
 {
-um=as.numeric(row.names(x))
+um=as.numeric(gsub("<40","0",row.names(x)))
 phi=rep(0,length(um))
 for (i in 1:length(um))
 if (um[i]>10) phi[i]=-log2(um[i]/1000) else phi[i]=10
@@ -115,4 +111,3 @@ result=as.list(result)
 result
 
 }
-

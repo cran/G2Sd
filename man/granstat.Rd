@@ -100,7 +100,7 @@ A matrix containing
 \cite{Wentworth, C.K. 1922. A scale of grade and class terms for clastic sediments. \emph{Journal of Geology} \strong{30}, 377-392}
 }
 \author{
-Regis K. Gallon (MNHN) \email{regis.gallon@mnhn.fr}, 
+Regis K. Gallon (MNHN) \email{reg.gallon@gmail.com}, 
 Jerome Fournier (CNRS) \email{fournier@mnhn.fr}
 }
 

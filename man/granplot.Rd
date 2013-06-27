@@ -13,7 +13,7 @@ granplot(x, xc = 1, hist = TRUE, cum = TRUE, main = "",
 }
 \arguments{
   \item{x}{
-A numeric matrix or data frame
+A numeric matrix or data frame (see the shape of data(granulo))
 }
   \item{xc}{
 Define a column
@@ -41,12 +41,14 @@ The obtained graph is the most commonly used by Sedimentologists
 A histogram with a cumulative percentage curve
 }
 \author{
-Regis K. Gallon (MNHN) \email{regis.gallon@mnhn.fr}, 
+Regis K. Gallon (MNHN) \email{reg.gallon@gmail.com}, 
 Jerome Fournier (CNRS) \email{fournier@mnhn.fr}
 }
-
+\seealso{
+\code{\link[G2Sd]{grandistrib}}
+}
 \examples{
 data(granulo)
 granplot(granulo,xc=1,hist=TRUE,cum=TRUE,main="Grain-size Distribution",
-			col.hist="grey",col.cum="black")
+			col.hist="gray",col.cum="red")
 }

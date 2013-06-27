@@ -4,13 +4,13 @@ citEntry(entry="Manual",
 	title = "G2Sd : Grain-size Statistics and Description of Sediment",
         author = personList(as.person("Regis K. Gallon"),as.person("Jerome Fournier")),
 	URL = "http://cran.r-project.org/web/packages/G2Sd/index.html",
-  	year = "2012",
+  	year = "2013",
 	       
         textVersion = 
         paste("Regis K. Gallon and Jerome Fournier ",
-				"2012 ", 
+				"2013 ", 
                "G2Sd : Grain-size Statistics and Description of Sediment ",
                "http://cran.r-project.org/web/packages/G2Sd/index.html ",
-               "R package version 1.2 ",
+               "R package version 2.0 ",
                sep=",")
          )

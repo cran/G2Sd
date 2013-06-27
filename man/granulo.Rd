@@ -6,31 +6,14 @@
 Data frame for G2Sd package
 }
 \description{
-\kbd{granulo} is a data frame of 29 observations and 16 variables (samples K1 to K16). The first column corresponds to the apertures sizes of AFNOR sieves, in micrometer (25000, 20000, 16000, 12500, 10000, 8000, 6300, 5000, 4000, 2500, 2000, 1600, 1250, 1000, 800, 630, 500, 400, 315, 250, 200, 160, 125, 100, 80, 63, 50, 40, 0).
+\kbd{granulo} is a data frame of 29 observations and 21 variables. The first column corresponds to the apertures sizes of AFNOR sieves, in micrometer (25000, 20000, 16000, 12500, 10000, 8000, 6300, 5000, 4000, 2500, 2000, 1600, 1250, 1000, 800, 630, 500, 400, 315, 250, 200, 160, 125, 100, 80, 63, 50, 40, 0).
 Warning ! the last sieve 0 corresponds to the material retained in the < 40 micrometer pan after sieving.
 The others columns corresponds to the weight of samples beside each size class
 }
 \usage{data(granulo)}
 \format{
-  A data frame with 29 observations on the following 16 variables
-  \describe{
-    \item{\code{K1}}{a numeric vector}
-    \item{\code{K2}}{a numeric vector}
-    \item{\code{K3}}{a numeric vector}
-    \item{\code{K4}}{a numeric vector}
-    \item{\code{K5}}{a numeric vector}
-    \item{\code{K6}}{a numeric vector}
-    \item{\code{K7}}{a numeric vector}
-    \item{\code{K8}}{a numeric vector}
-    \item{\code{K9}}{a numeric vector}
-    \item{\code{K10}}{a numeric vector}
-    \item{\code{K11}}{a numeric vector}
-    \item{\code{K12}}{a numeric vector}
-    \item{\code{K13}}{a numeric vector}
-    \item{\code{K14}}{a numeric vector}
-    \item{\code{K15}}{a numeric vector}
-    \item{\code{K16}}{a numeric vector}
-  }
+  A data frame with 29 rows corresponding to the apertures sizes on the following 21 stations sampled
+  
 }
 \details{
 This example provide a data frame of sedimentary data obtained with AFNOR sieves (in micrometer)

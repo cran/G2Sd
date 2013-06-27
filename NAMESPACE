@@ -1,2 +1,6 @@
- import("stats","graphics")
- export(granstat,granplot)
+export(granstat,granplot,grandistrib)
+
+
+
+
+ 
