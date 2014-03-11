@@ -17,14 +17,13 @@ class.weight.cum = round(cumsum(class.weight),2)
 
 if (hist == TRUE & cum == TRUE) {
   par(mar = c(5, 4, 4, 4))
-  barplot(x[, xc] * ((100/max(x[, xc]))), xlab = "Particule size (microns)", 
-          ylab = "Weight (g)", names.arg = um, las = 2, yaxt = "n", 
-          main = main, col = col.hist,cex.names=cexname,font.lab=2,cex.lab=cexlab)
+  barplot(round(class.weight,2), xlab = "Particule size (microns)", 
+          ylab = "Weight (%)", names.arg = um, las = 2, yaxt = "n", 
+          main = main, col = col.hist,cex.names=cexname,font.lab=2,cex.lab=cexlab,ylim=c(0,100))
 
   axis(4, at = seq(0, 100, 20), labels = seq(0, 100, 20), 
        las = 2, col = col.cum, col.axis = col.cum,cex.axis=cexname)
-  axis(2, at = seq(0, 100, 20), labels = round(seq(0, max(x[, 
-                                                      xc]), max(x[, xc])/5),2), las = 2,cex.axis=cexname)
+  axis(2, at = seq(0, 100, 20), labels = seq(0, 100, 20), las = 2,cex.axis=cexname)
   mtext("(% cum) ", 4, line = 2, col = col.cum,font=2,cex=cexlab)
   lines(class.weight.cum, col = col.cum, lwd = 1)
 }
@@ -36,7 +35,7 @@ if (hist == FALSE & cum == TRUE) {
   axis(1, at = 1:length(x[, xc]), labels = um, las = 2,cex.axis=cexname)
 }
 if (hist == TRUE & cum == FALSE) {
-  barplot(round(x[, xc],2), xlab = "Particule size (microns)", ylab = "Weight (g)", 
+  barplot(round(class.weight,2), xlab = "Particule size (microns)", ylab = "Weight (g)", 
           names.arg = um, las = 2, main = main, col = col.hist,cex.names=cexname,font.lab=2,cex.lab=cexlab)
   
 }

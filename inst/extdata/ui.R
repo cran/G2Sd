@@ -14,8 +14,7 @@ shinyUI(pageWithSidebar(
     wellPanel(
       h3(p(strong("Data"))),
       p(fileInput('file1', 'Choose XLS or XLSx File',accept=c('application/vnd.ms-excel', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', '.xlsx','.xls')),
-        em(helpText("Be careful : Use comma as decimal separator and empty cells must be replaced by zeros, for example of databases ",
-                    a("click here",href = "http://regisgallon.wordpress.com/r-software/",target="_blank"))),
+        em(helpText("For example of databases,",a("click here",href = "http://regisgallon.wordpress.com/r-software/",target="_blank"))),
         numericInput('sheetindex', 'Sheet N°',1,min=1,max=99),    
         checkboxInput('header', 'Header', TRUE))
       

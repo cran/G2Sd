@@ -631,7 +631,7 @@ function(x,um){
 {if (mud==0 & sand==0) mudsand=0
  if (mud==0 & sand>0) mudsand=10
  if (sand==0 & mud>0) mudsand=0.01
- else mudsand=sand/mud }
+ if (sand>0 & mud>0) mudsand=sand/mud} 
       
       if (mudsand>=9){
         if (gravel>80) texture="Gravel"

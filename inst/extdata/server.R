@@ -50,7 +50,8 @@ shinyServer(function(input, output) {
       return(NULL)
     
     bdd_gran <- read.xlsx(inFile$datapath, sheetIndex=input$sheetindex, Header=input$header)
-    row.names(bdd_gran) <- bdd_gran[,1];bdd_gran <- bdd_gran[,-1]; bdd_gran <- bdd_gran[,-dim(bdd_gran)[2]]
+    row.names(bdd_gran) <- bdd_gran[,1];bdd_gran <- bdd_gran[,-1]
+#     ; bdd_gran <- bdd_gran[,-dim(bdd_gran)[2]]
     bdd_gran <- round(bdd_gran,3);bdd_gran <- grancompat(bdd_gran)
     
     output$stat <- renderTable({ 
