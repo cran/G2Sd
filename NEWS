@@ -6,3 +6,7 @@
 2.0-1 (2013-11-07)
 	*correction of .grancompat function
 	
+2.1 (2014-03-11)
+	*corrections of bugs
+	*add new function using shiny package
+	

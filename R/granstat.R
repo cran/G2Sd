@@ -1,6 +1,11 @@
 granstat <-
-function(x,statistic="all",aggr=TRUE,modes=FALSE){
+function(x,web_interface=FALSE,statistic="all",aggr=TRUE,modes=FALSE){
 
+if(web_interface==TRUE){
+  .G2Sd_web()}
+  
+if(web_interface==FALSE){  
+  
 x <- .grancompat(x)
             
 STAT=c("arithmetic","geometric","folk.ward","all")
@@ -109,5 +114,5 @@ result=as.list(result)
 }
 }
 result
-
+}
 }

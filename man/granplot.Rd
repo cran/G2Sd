@@ -9,7 +9,7 @@ This function provides a histogram of the grain-size distribution with a cumulat
 }
 \usage{
 granplot(x, xc = 1, hist = TRUE, cum = TRUE, main = "", 
-			col.cum = "red", col.hist="gray")
+			col.cum = "red", col.hist="gray", cexname=0.9)
 }
 \arguments{
   \item{x}{
@@ -33,6 +33,11 @@ Color in which cumulative percentage curve will be drawn
 \item{col.hist}{
 Color in which histogram will be drawn
 }
+\item{cexname}{
+A numerical value giving the amount by which plotting text and symbols should be magnified
+relative to the default.
+}
+
 }
 \details{
 The obtained graph is the most commonly used by Sedimentologists

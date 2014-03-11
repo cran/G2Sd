@@ -13,11 +13,14 @@ Are also included the percentage of particules falling into each predefined size
 \kbd{granstat} is a function which provides all results organized in two ways: a complete matrix (by default) or by separate items.
 }
 \usage{
-granstat(x, statistic = "all", aggr = TRUE, modes = FALSE)
+granstat(x, web_interface=FALSE, statistic = "all", aggr = TRUE, modes = FALSE)
 }
 \arguments{
   \item{x}{
 A numeric matrix or data frame
+}
+  \item{web_interface}{
+if TRUE, a simplified interface is displayed from your default web browser
 }
   \item{statistic}{
 Statistic used: "arithmetic", "geometric", "folk.ward", "all". If this argument is not used, all statistics are calculated
@@ -110,4 +113,7 @@ data(granulo)
 granstat(granulo)
 granstat(granulo,statistic="all",aggr=TRUE,modes=FALSE)
 granstat(granulo,statistic="folk.ward",aggr=FALSE,modes=TRUE)
+
+#to display the simplified interface
+#granstat(web_interface=TRUE)
 }

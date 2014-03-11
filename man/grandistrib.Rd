@@ -8,12 +8,15 @@ Composition of the sediment
 This function provides a barplot of the different fractions composing the sediment
 }
 \usage{
-grandistrib(x, scale = "fine", xlab = "Stations", ylab = "Percentage")
+grandistrib(x, main="", scale = "fine", xlab = "Stations", ylab = "Percentage")
 }
 
 \arguments{
   \item{x}{
 A numeric matrix or data frame (see the shape of data(granulo))
+}
+  \item{main}{
+a label for the title
 }
   \item{scale}{
 If fine, display the detailed composition; If large, display the simplify composition 
