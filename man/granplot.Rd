@@ -9,7 +9,8 @@ This function provides a histogram of the grain-size distribution with a cumulat
 }
 \usage{
 granplot(x, xc = 1, hist = TRUE, cum = TRUE, main = "", 
-			col.cum = "red", col.hist="gray", cexname=0.9)
+			col.cum = "red", col.hist="gray", cexname=0.9,
+			cexlab=1.3,decreasing=FALSE)
 }
 \arguments{
   \item{x}{
@@ -37,7 +38,13 @@ Color in which histogram will be drawn
 A numerical value giving the amount by which plotting text and symbols should be magnified
 relative to the default.
 }
-
+\item{cexlab}{
+A numerical value giving the amount by which axis labels should be magnified
+relative to the default.
+}
+\item{decreasing}{
+logical. Should the sort order be increasing or decreasing?
+}
 }
 \details{
 The obtained graph is the most commonly used by Sedimentologists
