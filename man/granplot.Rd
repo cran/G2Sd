@@ -17,13 +17,13 @@ granplot(x, xc = 1, hist = TRUE, cum = TRUE, main = "",
 A numeric matrix or data frame (see the shape of data(granulo))
 }
   \item{xc}{
-Define a column
+A numeric value or a numeric vector to define columns
 }
   \item{hist}{
-If TRUE, display a histogram; if FALSE, do not display a histogram
+If TRUE, display a histogram; if FALSE, do not display a histogram (only for only one column)
 }
   \item{cum}{
-If TRUE, display a cumulative percentage curve; if FALSE do not display a cumulative percentage curve
+If TRUE, display a cumulative percentage curve; if FALSE do not display a cumulative percentage curve (only for only one column)
 }
   \item{main}{
 Add a title to the current plot
@@ -43,7 +43,7 @@ A numerical value giving the amount by which axis labels should be magnified
 relative to the default.
 }
 \item{decreasing}{
-logical. Should the sort order be increasing or decreasing?
+A logical value defining the order increasing or decreasing
 }
 }
 \details{
@@ -63,4 +63,6 @@ Jerome Fournier (CNRS) \email{fournier@mnhn.fr}
 data(granulo)
 granplot(granulo,xc=1,hist=TRUE,cum=TRUE,main="Grain-size Distribution",
 			col.hist="gray",col.cum="red")
+      
+granplot(granulo,xc=2:4,main="Grain-size Distribution")
 }

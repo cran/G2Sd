@@ -3,7 +3,7 @@ library(shiny)
 
 stat.choose <- c("arithmetic","geometric", "folk.ward", "all")
 # Define UI for miles per gallon application
-shinyUI(pageWithSidebar(
+shinyUI(fluidPage(theme = "bootstrap3.css",
   
   # Application title
   headerPanel("G2Sd : Grain-size Statistics and Description of Sediment"),  

@@ -2,18 +2,20 @@ granplot <-
 function(x,xc=1,hist=TRUE,cum=TRUE,main="",col.cum="red",col.hist="gray",cexname=0.9,cexlab=1.3,decreasing=FALSE) 
   {
 
-    x <- .grancompat(x)
     x <- x[order(as.numeric(row.names(x)),decreasing=decreasing),]
     
 #     x <- as.data.frame(x)    
     um <- as.numeric(row.names(x))
-    if (pmatch(0,um)!=0 ) um[pmatch(0,um)]="<40"
+    if (!is.na(pmatch(0,um)) ) um[pmatch(0,um)]="<40"
     
     
-    
+if (length(xc)==1)
+{
 sum.sieve = sum(x[, xc])
 class.weight = (x[, xc] * 100)/sum.sieve
 class.weight.cum = round(cumsum(class.weight),2)
+
+
 
 if (hist == TRUE & cum == TRUE) {
   par(mar = c(5, 4, 4, 4))
@@ -37,6 +39,27 @@ if (hist == FALSE & cum == TRUE) {
 if (hist == TRUE & cum == FALSE) {
   barplot(round(class.weight,2), xlab = "Particule size (microns)", ylab = "Weight (g)", 
           names.arg = um, las = 2, main = main, col = col.hist,cex.names=cexname,font.lab=2,cex.lab=cexlab)
-  
 }
+}
+
+if (length(xc)!=1)
+{
+  class.weight = sapply( x[,xc], function(x){ (x/sum(x, na.rm=TRUE))*100})
+  class.weight.cum = as.data.frame(round(apply(class.weight,2,cumsum),2));row.names(class.weight.cum) <- row.names(x)
+  class.weight.cum <- melt(t(class.weight.cum ),id=names(t(class.weight.cum )))
+  names(class.weight.cum) <- c("var","gsize","value")
+  
+  
+    p <- ggplot(class.weight.cum,aes_string(x="gsize",y="value",shape="var",col="var"))+geom_line(size=2)+
+      theme_bw()+labs(x="Particule size (microns)", y="Percentage cum.(%)",title=main)+
+    theme( plot.title = element_text(size = rel(1.5), colour = "black",face="bold"),
+      axis.title.y = element_text(size = rel(1.3), face = "bold"),
+          axis.title.x = element_text(size = rel(1.3), face = "bold"),
+          axis.text.y = element_text(size = rel(1.1), face = "bold"),
+          axis.text.x = element_text(size = rel(1.1),face="bold"))+scale_colour_hue("Stations")
+  print(p)
+}
+
+  
+
 }
