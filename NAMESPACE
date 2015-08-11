@@ -3,14 +3,17 @@
 ####################################
 
 ### generic methods importation
-#import("stats")
+import("stats")
 import("shiny") 
 import("xlsx")
 import("rJava")
 import("xlsxjars")
 import("reshape2")
 import("ggplot2")
-
+importFrom("grDevices", "rainbow")
+importFrom("graphics", "axis", "barplot", "identify", "layout",
+     "legend", "lines", "mtext", "par", "plot", "polygon",
+     "text")
 
 ##################################
 ##       G2Sd exports	  	    ##

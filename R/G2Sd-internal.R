@@ -1,97 +1,92 @@
 .fowa.stat <-
 function(x,phi,um){
-    
-    folk.ward=data.frame(matrix(ncol=0,nrow=9))
-    
-    
-    for (b in 1:dim(x)[2])
-    {y=x[b]
-     sum.sieve=sum(y)
-     class.weight=(y*100)/sum.sieve
-     cum.sum=cumsum(class.weight)[,1]
+  folk.ward=data.frame(matrix(ncol=0,nrow=9))
+  
+  
+  for (b in 1:dim(x)[2])
+  {y=x[b]
+   sum.sieve=sum(y)
+   class.weight=(y*100)/sum.sieve
+   cum.sum=cumsum(class.weight)[,1]
+   
+   if (min(cum.sum)>5) 
+   {
+     fowa=data.frame(rep(0,9))
+     row.names(fowa)=c("Sediment","Mean.fw.um","Sd.fw.um","Skewness.fw.um","Kurtosis.fw.um","Mean.fw.phi","Sd.fw.phi","Skewness.fw.phi","Kurtosis.fw.phi")
+     names(fowa)=names(x)[b]
+   }
+   
+   if (min(cum.sum)<5)
+   {
      mat.D=.percentile(x[,b],phi,um)
      
-       mean.phi=(mat.D["16",1]+mat.D["50",1]+mat.D["84",1])/3 
-     if (is.na(mean.phi)) mean.phi <- 0
-       mean.mm=(exp(log(mat.D["16",2])+log(mat.D["50",2])+log(mat.D["84",2])/3))/1000
-     if (is.na(mean.mm)) mean.mm <- 0
-       
-       sd.phi=-(((mat.D["84",1]-mat.D["16",1])/4)+((mat.D["95",1]-mat.D["5",1])/6.6))
-     if (is.na(sd.phi)) sd.phi <- 0
-       sd.mm=exp(((log(mat.D["84",2])-log(mat.D["16",2]))/4)+((log(mat.D["95",2])-log(mat.D["5",2]))/6.6))
-     if (is.na(sd.mm)) sd.mm <- 0
-       
-       skewness.phi=-(((mat.D["16",1]+mat.D["84",1]-(2*mat.D["50",1]))/(2*(mat.D["84",1]-mat.D["16",1])))+((mat.D["5",1]+mat.D["95",1]-(2*mat.D["50",1]))/(2*(mat.D["95",1]-mat.D["5",1]))))
-     if (is.na(skewness.phi)) skewness.phi <- 0  
+     mean.phi=(mat.D[6,1]+mat.D[4,1]+mat.D[2,1])/3
+     mean.mm=(exp(log(mat.D[6,2])+log(mat.D[4,2])+log(mat.D[2,2])/3))/1000
+     
+     sd.phi=-(((mat.D[2,1]-mat.D[6,1])/4)+((mat.D[1,1]-mat.D[7,1])/6.6))
+     sd.mm=exp(((log(mat.D[2,2])-log(mat.D[6,2]))/4)+((log(mat.D[1,2])-log(mat.D[7,2]))/6.6))
+     
+     skewness.phi=-(((mat.D[6,1]+mat.D[2,1]-(2*mat.D[4,1]))/(2*(mat.D[2,1]-mat.D[6,1])))+ ((mat.D[7,1]+mat.D[1,1]-(2*mat.D[4,1]))/(2*(mat.D[1,1]-mat.D[7,1]))))
      skewness.mm=-skewness.phi
-     if (is.na(skewness.mm)) skewness.mm <- 0
      
-       kurtosis.phi=(mat.D["95",1]-mat.D["5",1])/(2.44*(mat.D["75",1]-mat.D["25",1]))
-      if (is.na(kurtosis.phi)) kurtosis.phi <- 0  
+     kurtosis.phi=(mat.D[1,1]-mat.D[7,1])/(2.44*(mat.D[3,1]-mat.D[5,1]))
      kurtosis.mm=kurtosis.phi
-     if (is.na(kurtosis.mm)) kurtosis.mm <- 0
+     
+     if (mean.phi<=-5) mean.descript="Very Coarse Gravel"
+     if (mean.phi>-5 & mean.phi<=-4) mean.descript="Coarse Gravel"
+     if (mean.phi>-4 & mean.phi<=-3) mean.descript="Medium Gravel"
+     if (mean.phi>-3 & mean.phi<=-2) mean.descript="Fine Gravel"
+     if (mean.phi>-2 & mean.phi<=-1) mean.descript="Very Fine Gravel"
+     if (mean.phi>-1 & mean.phi<=0) mean.descript="Very Coarse Sand"
+     if (mean.phi>0 & mean.phi<=1) mean.descript="Coarse Sand"
+     if (mean.phi>1 & mean.phi<=2) mean.descript="Medium Sand"
+     if (mean.phi>2 & mean.phi<=3) mean.descript="Fine Sand"
+     if (mean.phi>3 & mean.phi<=4) mean.descript="Very Fine Sand"
+     if (mean.phi>4 & mean.phi<=5) mean.descript="Very Coarse Silt"
+     if (mean.phi>5 & mean.phi<=6) mean.descript="Coarse Silt"
+     if (mean.phi>6 & mean.phi<=7) mean.descript="Medium Silt"
+     if (mean.phi>7 & mean.phi<=8) mean.descript="Fine Silt"
+     if (mean.phi>8 & mean.phi<=9) mean.descript="Very Fine Silt"
+     if (mean.phi>8) mean.descript="Clay"
+     
+     if (sd.phi<0.35) sorting="Very Well Sorted"
+     if (sd.phi>=0.35 & sd.phi<0.5) sorting="Well Sorted"
+     if (sd.phi>=0.5 & sd.phi<0.7) sorting="Moderately Well Sorted"
+     if (sd.phi>=0.7 & sd.phi<1) sorting="Moderately Sorted"
+     if (sd.phi>=1 & sd.phi<2) sorting="Poorly Sorted"
+     if (sd.phi>=2 & sd.phi<4) sorting="Very Poorly Sorted"
+     if (sd.phi>=4) sorting="Extremely Poorly Sorted"
      
      
-       if (mean.phi<=-5) mean.descript="Very Coarse Gravel"
-       if (mean.phi>-5 & mean.phi<=-4) mean.descript="Coarse Gravel"
-       if (mean.phi>-4 & mean.phi<=-3) mean.descript="Medium Gravel"
-       if (mean.phi>-3 & mean.phi<=-2) mean.descript="Fine Gravel"
-       if (mean.phi>-2 & mean.phi<=-1) mean.descript="Very Fine Gravel"
-       if (mean.phi>-1 & mean.phi<=0) mean.descript="Very Coarse Sand"
-       if (mean.phi>0 & mean.phi<=1) mean.descript="Coarse Sand"
-       if (mean.phi>1 & mean.phi<=2) mean.descript="Medium Sand"
-       if (mean.phi>2 & mean.phi<=3) mean.descript="Fine Sand"
-       if (mean.phi>3 & mean.phi<=4) mean.descript="Very Fine Sand"
-       if (mean.phi>4 & mean.phi<=5) mean.descript="Very Coarse Silt"
-       if (mean.phi>5 & mean.phi<=6) mean.descript="Coarse Silt"
-       if (mean.phi>6 & mean.phi<=7) mean.descript="Medium Silt"
-       if (mean.phi>7 & mean.phi<=8) mean.descript="Fine Silt"
-       if (mean.phi>8 & mean.phi<=9) mean.descript="Very Fine Silt"
-       if (mean.phi>8) mean.descript="Clay"
-       
-       if (sd.phi<0.35) sorting="Very Well Sorted"
-       if (sd.phi>=0.35 & sd.phi<0.5) sorting="Well Sorted"
-       if (sd.phi>=0.5 & sd.phi<0.7) sorting="Moderately Well Sorted"
-       if (sd.phi>=0.7 & sd.phi<1) sorting="Moderately Sorted"
-       if (sd.phi>=1 & sd.phi<2) sorting="Poorly Sorted"
-       if (sd.phi>=2 & sd.phi<4) sorting="Very Poorly Sorted"
-       if (sd.phi>=4) sorting="Extremely Poorly Sorted"
-       
-       
-       if (skewness.phi>=0.3) skewness.descript="Very Fine Skewed"
-       if (skewness.phi<0.3 & skewness.phi>=0.1) skewness.descript="Fine Skewed"
-       if (skewness.phi<0.1 & skewness.phi>-0.1) skewness.descript="Symmetrical"
-       if (skewness.phi<=-0.1 & skewness.phi>-0.3) skewness.descript="Coarse Skewed"
-       if (skewness.phi<=-0.3) skewness.descript="Very Coarse Skewed"
-       
-       if (kurtosis.phi<0.67) kurtosis.descript="Very Platykurtic"
-       if (kurtosis.phi>=0.67 & kurtosis.phi<0.9) kurtosis.descript="Platykurtic"
-       if (kurtosis.phi>=0.9 & kurtosis.phi<=1.11) kurtosis.descript="Mesokurtic"
-       if (kurtosis.phi>1.11 & kurtosis.phi<=1.5) kurtosis.descript="Leptokurtic"
-       if (kurtosis.phi>1.5 & kurtosis.phi<=3) kurtosis.descript="Very Leptokurtic"
-       if (kurtosis.phi>3) kurtosis.descript="Extremely Leptokurtic"
-       
-              
-       result.fw.phi=data.frame(c(round(mean.phi,3),round(sd.phi,3),round(skewness.phi,3),round(kurtosis.phi,3)))
-       names(result.fw.phi)=names(x)[b]
-       
-       result.fw.mm=data.frame(c(round(mean.mm,3),round(sd.mm,3),round(skewness.mm,3),round(kurtosis.mm,3)))
-       names(result.fw.mm)=names(x)[b]
+     if (skewness.phi>=0.3) skewness.descript="Very Fine Skewed"
+     if (skewness.phi<0.3 & skewness.phi>=0.1) skewness.descript="Fine Skewed"
+     if (skewness.phi<0.1 & skewness.phi>-0.1) skewness.descript="Symmetrical"
+     if (skewness.phi<=-0.1 & skewness.phi>-0.3) skewness.descript="Coarse Skewed"
+     if (skewness.phi<=-0.3) skewness.descript="Very Coarse Skewed"
+     
+     if (kurtosis.phi<0.67) kurtosis.descript="Very Platykurtic"
+     if (kurtosis.phi>=0.67 & kurtosis.phi<0.9) kurtosis.descript="Platykurtic"
+     if (kurtosis.phi>=0.9 & kurtosis.phi<=1.11) kurtosis.descript="Mesokurtic"
+     if (kurtosis.phi>1.11 & kurtosis.phi<=1.5) kurtosis.descript="Leptokurtic"
+     if (kurtosis.phi>1.5 & kurtosis.phi<=3) kurtosis.descript="Very Leptokurtic"
+     if (kurtosis.phi>3) kurtosis.descript="Extremely Leptokurtic"
      
      .sedim.descript=paste(mean.descript,sorting,skewness.descript,kurtosis.descript,sep=",")
      
-     if(all(result.fw.phi==0)) .sedim.descript <- "NO DESCRIPTION"
+     result.fw.phi=data.frame(c(round(mean.phi,3),round(sd.phi,3),round(skewness.phi,3),round(kurtosis.phi,3)))
+     names(result.fw.phi)=names(x)[b]
      
+     result.fw.mm=data.frame(c(round(mean.mm,3),round(sd.mm,3),round(skewness.mm,3),round(kurtosis.mm,3)))
+     names(result.fw.mm)=names(x)[b]
      
-       
-       fowa=data.frame(rbind(.sedim.descript,result.fw.mm,result.fw.phi))
-       row.names(fowa)=c("Sediment","Mean.fw.um","Sd.fw.um","Skewness.fw.um","Kurtosis.fw.um","Mean.fw.phi","Sd.fw.phi","Skewness.fw.phi","Kurtosis.fw.phi")
-       names(fowa)=names(x)[b]
-     folk.ward=cbind(folk.ward,fowa)
-     }
-     
-    return(folk.ward)
+     fowa=data.frame(rbind(.sedim.descript,result.fw.mm,result.fw.phi))
+     row.names(fowa)=c("Sediment","Mean.fw.um","Sd.fw.um","Skewness.fw.um","Kurtosis.fw.um","Mean.fw.phi","Sd.fw.phi","Skewness.fw.phi","Kurtosis.fw.phi")
+     names(fowa)=names(x)[b]
+   }
+   folk.ward=cbind(folk.ward,fowa)
   }
+  folk.ward
+}
 .G2Sd_web <-
 function(){
   runApp(appDir=paste0(.libPaths()[1],"/G2Sd/extdata"))
@@ -108,7 +103,7 @@ function(x)
     stop("negative entries in dataframe.")
   if (any(x > 300))
     warning("Some high values are present.", call. = FALSE,immediate.=TRUE)
-  if (n.sieve!=29)
+  if (n.sieve!=30)
   {
     cat("Compatibility progress.... \n \n")
     
@@ -322,15 +317,12 @@ function(loc,size,bearing=0,cols,letter_dist=1,cex=1,...) {
 .percentile <-
   function(x,phi,um){
     
-    all=data.frame(x,phi,um)
-    all=all[order(as.numeric(all$um),decreasing=F),]
-    all=all[all$x!=0,]
-    x=as.numeric(all$x)
-    
+    x=as.numeric(x)
     sum.sieve=sum(x)
     class.weight=(x*100)/sum.sieve
     cum.sum=as.numeric(cumsum(class.weight))
-    D=c(5,10,16,25,50,75,84,90,95)
+    D=c(5,16,25,50,75,84,95,10,90)
+
     
     minimum.cumsum <- min(cum.sum)
     if (any(D< minimum.cumsum))
@@ -345,7 +337,7 @@ function(loc,size,bearing=0,cols,letter_dist=1,cex=1,...) {
     
     if (all(D> minimum.cumsum))
     {
-      class.weight.PHI=cbind(cum.sum,all$phi,all$um)
+      class.weight.PHI=cbind(cum.sum,phi,um)
       mat.D=data.frame(matrix(ncol=2,nrow=9))
       row.names(mat.D)=D
       names(mat.D)=c("Phi","um")
