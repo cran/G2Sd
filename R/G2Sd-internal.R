@@ -103,29 +103,30 @@ function(x)
     stop("negative entries in dataframe.")
   if (any(x > 300))
     warning("Some high values are present.", call. = FALSE,immediate.=TRUE)
-  if (n.sieve!=30)
-  {
-    cat("Compatibility progress.... \n \n")
-    
-    ref_sieve=c(25000,20000,16000,12500,10000,8000,6300,5000,4000,3150,2500,
-                2000,1600,1250,1000,800,630,500,400,315,250,200,160,125,
-                100,80,63,50,40,0)      
-    
-    init_df <- as.data.frame(matrix(data=0,ncol=n.sample,nrow=length(ref_sieve)));colnames(init_df) <- colnames(x)
-    row.names(init_df) <-ref_sieve
-    
-   
-    if (any(is.na(pmatch(row.names(x),ref_sieve))))
-      stop("Incorrect sieve values.")
-    
-    else 
-   
-    {for (sieve in row.names(x))
-      init_df[sieve,] <- x[sieve,]}
-    
-  }
-  else init_df <- x
-  return(init_df)
+#   if (n.sieve!=30)
+#   {
+#     cat("Compatibility progress.... \n \n")
+#     
+#     ref_sieve=c(25000,20000,16000,12500,10000,8000,6300,5000,4000,3150,2500,
+#                 2000,1600,1250,1000,800,630,500,400,315,250,200,160,125,
+#                 100,80,63,50,40,0)      
+#     
+#     init_df <- as.data.frame(matrix(data=0,ncol=n.sample,nrow=length(ref_sieve)));colnames(init_df) <- colnames(x)
+#     row.names(init_df) <-ref_sieve
+#     
+#    
+#     if (any(is.na(pmatch(row.names(x),ref_sieve))))
+#       stop("Incorrect sieve values.")
+#     
+#     else 
+#    
+#     {for (sieve in row.names(x))
+#       init_df[sieve,] <- x[sieve,]}
+#     
+#   }
+#   else init_df <- x
+#   return(init_df)
+  return(x)
 }
 .index.sedim <-
 function(x,phi,um){
@@ -144,7 +145,7 @@ function(x,phi,um){
       index[5,1]=round(mat.D["90",2]-mat.D["10",2],3)
       index[6,1]=round(mat.D["75",2]/mat.D["25",2],3)
       index[7,1]=round(mat.D["75",2]-mat.D["25",2],3)
-      index[8,1]=round(sqrt(mat.D["75",2]/mat.D["25",2]),3)
+      index[8,1]=round(sqrt(mat.D["25",2]/mat.D["75",2]),3)
       index[9,1]=round((mat.D["25",1]-mat.D["75",1])/2,3)
       
       
