@@ -1,6 +1,5 @@
 \name{grandistrib}
 \alias{grandistrib}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{
 Composition of the sediment
 }
@@ -36,7 +35,8 @@ A barplot with the composition of sediment for each station sampled
 }
 
 \author{
-Regis K. Gallon (MNHN) \email{reg.gallon@gmail.com}
+Regis K. Gallon (CNAM-Intechmer)\cr
+\email{regis.gallon@lecnam.net}
 }
 
 \seealso{

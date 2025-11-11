@@ -1,6 +1,6 @@
 \encoding{UTF8}
 \name{G2Sd}
-\Rdversion{2.0}
+\Rdversion{2.2}
 \alias{G2Sd-package}
 \alias{G2Sd}
 \docType{package}
@@ -19,14 +19,15 @@ The mode(s) is(are) determined graphically by the user (with a maximum of 4 mode
 Several percentiles and common index are calculated: D10, D50, D90, D90/D10, D90-D10, D75/D25, D75-D25, Trask(So) Index, Krumbein(Qd) Index.
 Physical description of texture, sorting, skewness or kurtosis are provided as such as the sediment name after Folk (1954).
 Are also included the percentage of particules falling into each predefined size fraction, modified from Blott and Pye (2001) scale, Udden (1914) and Wentworth (1922).
-There are four functions. \kbd{granstat} is a function which provides all results organized in two ways: a complete matrix (by default) or by separate items;
+There are four functions. \kbd{granstat} is a function which provides all results in a list;
 \kbd{granplot} is a function which provides a histogramm with a cumulative percentage curve;
 \kbd{grandistrib} is a function which provides a barplot of the different fractions composing the sediment;
-\kbd{granmap} is a function which provides a georeferenced map of the sediment distribution.
 }
 \author{
-Regis K. Gallon (MNHN) \email{reg.gallon@gmail.com}, 
-Jerome Fournier (CNRS) \email{fournier@mnhn.fr}
+Regis K. Gallon (CNAM-Intechmer)\cr
+\email{regis.gallon@lecnam.net}\cr
+Jerome Fournier (CNRS)\cr
+\email{fournier@mnhn.fr}
 }
 \references{
 \cite{Blott, S., Pye, K. 2001. Gradistat: grain size distribution and statistics package for the analysis of unconsolidated sediment. \emph{Earth, Surface Processes and Landforms} \strong{26}, 1237-1248}
@@ -46,7 +47,6 @@ Jerome Fournier (CNRS) \email{fournier@mnhn.fr}
 }
 \examples{
 data(granulo)
-data(coord_gran)
 result=granstat(granulo)
 granplot(granulo,1)
 }

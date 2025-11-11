@@ -3,20 +3,42 @@
 ####################################
 
 ### generic methods importation
-import("stats")
-import("shiny") 
-import("xlsx")
-import("rJava")
-import("xlsxjars")
-import("reshape2")
 import("ggplot2")
+import("tidyr")
+import("dplyr")
+import("viridis")
+import("shiny")
+importFrom("tibble", "rownames_to_column")
+importFrom("scales", "trans_new", "log_breaks")
+importFrom(
+     "bslib",
+     "page_navbar",
+     "nav_panel",
+     "card",
+     "card_header",
+     "card_body"
+)
+importFrom("shinyWidgets", "pickerInput")
+importFrom("plotly", "plotlyOutput", "renderPlotly", "ggplotly", "layout")
+importFrom("stats", "na.omit", "var")
 importFrom("grDevices", "rainbow")
-importFrom("graphics", "axis", "barplot", "identify", "layout",
-     "legend", "lines", "mtext", "par", "plot", "polygon",
-     "text")
+importFrom(
+     "graphics",
+     "axis",
+     "barplot",
+     "identify",
+     "legend",
+     "lines",
+     "mtext",
+     "par",
+     "plot",
+     "polygon",
+     "text"
+)
+importFrom("patchwork", "wrap_plots")
 
 ##################################
 ##       G2Sd exports	  	    ##
 ##################################
- 
-export(granstat,granplot,grandistrib)
+
+export(granstat, granplot, grandistrib)

@@ -8,9 +8,9 @@ Histogram with a cumulative percentage curve
 This function provides a histogram of the grain-size distribution with a cumulative percentage curve
 }
 \usage{
-granplot(x, xc = 1, hist = TRUE, cum = TRUE, main = "", 
-			col.cum = "red", col.hist="gray", cexname=0.9,
-			cexlab=1.3,decreasing=FALSE)
+granplot(x, xc = 1, meshmin=1, hist = TRUE, cum = TRUE, main = "", 
+			col.cum = "red", col.hist="darkgray", cexname=0.9,
+			cexlab=1.3, decreasing=FALSE, log.scale=TRUE)
 }
 \arguments{
   \item{x}{
@@ -19,6 +19,11 @@ A numeric matrix or data frame (see the shape of data(granulo))
   \item{xc}{
 A numeric value or a numeric vector to define columns
 }
+
+  \item{meshmin}{
+Define the size of the smallest meshsize if it is 0 in raw data
+}
+
   \item{hist}{
 If TRUE, display a histogram; if FALSE, do not display a histogram (only for only one column)
 }
@@ -45,6 +50,9 @@ relative to the default.
 \item{decreasing}{
 A logical value defining the order increasing or decreasing
 }
+\item{log.scale}{
+A logical value; if TRUE (default), use logarithmic scale for x-axis; if FALSE, use linear scale
+}
 }
 \details{
 The obtained graph is the most commonly used by Sedimentologists
@@ -53,8 +61,10 @@ The obtained graph is the most commonly used by Sedimentologists
 A histogram with a cumulative percentage curve
 }
 \author{
-Regis K. Gallon (MNHN) \email{reg.gallon@gmail.com}, 
-Jerome Fournier (CNRS) \email{fournier@mnhn.fr}
+Regis K. Gallon (CNAM-Intechmer)\cr
+\email{regis.gallon@lecnam.net}\cr
+Jerome Fournier (CNRS)\cr
+\email{fournier@mnhn.fr}
 }
 \seealso{
 \code{\link[G2Sd]{grandistrib}}

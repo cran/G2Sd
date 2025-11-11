@@ -1,18 +1,65 @@
 grandistrib <-
-function (x, main="", scale = "fine", xlab = "Stations", ylab = "Percentage") 
-{
-  if (scale == "fine") 
-    Descript <- granstat(x, aggr = F)$sedim[-c(1:5), ]
-  if (scale == "large") 
-    Descript <- as.data.frame(granstat(x, aggr = F)$sedim[c(2:5), ])
-  Descript = Descript[nrow(Descript):1, ]
-  layout(matrix(c(1, 1, 1, 1, 1, 2), nrow = 1), widths = c(0.7, 
-                                                           0.3))
-  par(mar = c(8, 4, 4, 2) + 0.5)
-  barplot(as.matrix(Descript), col = rainbow(nrow(Descript)), 
-          font.lab = 2, xlab = xlab, ylab = ylab, main=main, cex.lab = 1.9,cex.names=1.7,cex.axis=1.5,las=2)
-  par(mar = c(1, 1, 1, 1) + 0.1)
-  plot(1, 1, type = "n", axes = F, xlab = "", ylab = "")
-  legend("left", legend = rev(row.names(Descript)), fill = rev(rainbow(nrow(Descript))),
-         text.width=6,cex=2,bty="n")
-}
+  function(
+    x,
+    main = "",
+    scale = "fine",
+    xlab = "Stations",
+    ylab = "Percentage"
+  ) {
+    if (scale == "fine") {
+      Descript <- .sedim.descript(x)
+      Descript <- Descript |>
+        pivot_longer(cols = -samples, names_to = "class", values_to = "value")
+      Descript$class <- factor(
+        Descript$class,
+        c(
+          "boulder",
+          "vcgravel",
+          "cgravel",
+          "mgravel",
+          "fgravel",
+          "vfgravel",
+          "vcsand",
+          "csand",
+          "msand",
+          "fsand",
+          "vfsand",
+          "vcsilt",
+          "silt"
+        ),
+        ordered = T
+      )
+    }
+
+    if (scale == "large") {
+      Descript <- .texture.sedim(x)
+      Descript <- Descript |>
+        pivot_longer(
+          cols = -c(samples, texture),
+          names_to = "class",
+          values_to = "value"
+        )
+      Descript$class <- factor(
+        Descript$class,
+        c("Boulder", "Gravel", "Sand", "Mud"),
+        ordered = T
+      )
+    }
+
+    p <- ggplot(Descript, aes(x = samples, y = value, fill = class)) +
+      geom_bar(stat = "identity", position = "stack") +
+      theme_bw() +
+      scale_fill_viridis_d() +
+      xlab(xlab) +
+      ylab(ylab) +
+      ggtitle(main) +
+      guides(fill = guide_legend(title = "Classes")) +
+      theme(
+        axis.title = element_text(face = "bold", size = 13),
+        axis.text = element_text(size = 11),
+        legend.text = element_text(size = 11),
+        legend.title = element_text(face = "bold", size = 11)
+      )
+
+    print(p)
+  }
